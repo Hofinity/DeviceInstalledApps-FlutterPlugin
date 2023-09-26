@@ -1,0 +1,89 @@
+# device_installed_apps
+
+A new Flutter plugin project.
+
+## Getting Started
+
+[Plugin](https://pub.dev/packages/device_installed_apps) for Flutter with methods related to device installed apps.
+
+| Supported platform  |
+| :-----:             |
+| Android             |
+
+- [Installation Guide](https://pub.dev/packages/device_installed_apps#-installing-tab-)
+
+## Installation Guide
+
+## Usage
+
+#### Device installed apps
+``` dart
+List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(
+							String bundleIdPrefix,
+							bool includeSystemApps, 
+							bool includeIcon,
+		      				List<String> permissions,
+      						bool shouldHasAllPermissions);
+```
+###### Example
+
+``` dart
+var permissions = ['android.permission.NFC','android.permission.ACCESS_FINE_LOCATION'];
+List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(includeSystemApps: true, permissions: permissions, bundleIdPrefix: 'com.hofinity', shouldHasAllPermissions: false);
+```
+---------
+
+
+#### Device system apps
+``` dart
+List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(
+							String bundleIdPrefix,
+							bool includeIcon,
+		      				List<String> permissions,
+      						bool shouldHasAllPermissions);
+```
+###### Example
+
+``` dart
+var permissions = ['android.permission.NFC','android.permission.ACCESS_FINE_LOCATION'];
+List<AppInfo> apps = await DeviceDeviceInstalledApps.getSystemApps(permissions: permissions, bundleIdPrefix: 'com.hofinity', shouldHasAllPermissions: false);
+```
+---------
+
+#### Device installed apps bundleIds
+``` dart
+List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(
+							String bundleIdPrefix,
+							bool includeSystemApps, 
+							bool includeIcon,
+		      				List<String> permissions,
+      						bool shouldHasAllPermissions);
+```
+###### Example
+
+``` dart
+var permissions = ['android.permission.NFC','android.permission.ACCESS_FINE_LOCATION'];
+List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(includeSystemApps: true, permissions: permissions, bundleIdPrefix: 'com.hofinity', shouldHasAllPermissions: false);
+```
+---------
+
+#### Get an app info
+```
+AppInfo app = await DeviceInstalledApps.getAppInfo(String bundleId);
+```
+
+#### Launch an app
+```
+DeviceInstalledApps.launchApp(String bundleId)
+```
+#### Open app os settings
+```
+DeviceInstalledApps.openSettings(String bundleId)
+```
+#### Check if app is system app
+```
+bool isSystemApp = await DeviceInstalledApps.isSystemApp(String bundleId)
+```
+
+
+
