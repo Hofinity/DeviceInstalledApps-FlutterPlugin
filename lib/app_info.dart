@@ -7,7 +7,13 @@ class AppInfo {
   String? versionName;
   int? versionCode;
 
-  AppInfo(this.name, this.bundleId, this.icon, this.versionName, this.versionCode,);
+  AppInfo(
+    this.name,
+    this.bundleId,
+    this.icon,
+    this.versionName,
+    this.versionCode,
+  );
 
   factory AppInfo.create(dynamic data) {
     return AppInfo(

@@ -10,13 +10,14 @@ class MethodChannelDeviceInstalledApps extends DeviceInstalledAppsPlatform {
 
   @override
   Future<List<AppInfo>> getApps(
-      String bundleIdPrefix,
-        bool includeSystemApps,
-        bool includeIcon,
-        List<String> permissions,
-        bool shouldHasAllPermissions,
-      ) async {
-    List<dynamic> apps = await methodChannel.invokeMethod('getApps',
+    String bundleIdPrefix,
+    bool includeSystemApps,
+    bool includeIcon,
+    List<String> permissions,
+    bool shouldHasAllPermissions,
+  ) async {
+    List<dynamic> apps = await methodChannel.invokeMethod(
+      'getApps',
       {
         'bundleIdPrefix': bundleIdPrefix,
         'includeSystemApps': includeSystemApps,
@@ -32,12 +33,13 @@ class MethodChannelDeviceInstalledApps extends DeviceInstalledAppsPlatform {
 
   @override
   Future<List<AppInfo>> getSystemApps(
-      String bundleIdPrefix,
-      bool includeIcon,
-      List<String> permissions,
-      bool shouldHasAllPermissions,
-      ) async {
-    List<dynamic> apps = await methodChannel.invokeMethod('getSystemApps',
+    String bundleIdPrefix,
+    bool includeIcon,
+    List<String> permissions,
+    bool shouldHasAllPermissions,
+  ) async {
+    List<dynamic> apps = await methodChannel.invokeMethod(
+      'getSystemApps',
       {
         'bundleIdPrefix': bundleIdPrefix,
         'includeIcon': includeIcon,
@@ -52,44 +54,55 @@ class MethodChannelDeviceInstalledApps extends DeviceInstalledAppsPlatform {
 
   @override
   Future<List<String>> getAppsBundleIds(
-        String bundleIdPrefix,
-        bool includeSystemApps,
-        List<String> permissions,
-        bool shouldHasAllPermissions,
-       ) async {
-    List<String> apps = await methodChannel.invokeListMethod<String>('getAppsBundleIds',
-      {
-        'bundleIdPrefix': bundleIdPrefix,
-        'includeSystemApps': includeSystemApps,
-        'permissions': permissions,
-        'hasAllPermissions': shouldHasAllPermissions,
-      },
-    ) ?? [];
+    String bundleIdPrefix,
+    bool includeSystemApps,
+    List<String> permissions,
+    bool shouldHasAllPermissions,
+  ) async {
+    List<String> apps = await methodChannel.invokeListMethod<String>(
+          'getAppsBundleIds',
+          {
+            'bundleIdPrefix': bundleIdPrefix,
+            'includeSystemApps': includeSystemApps,
+            'permissions': permissions,
+            'hasAllPermissions': shouldHasAllPermissions,
+          },
+        ) ??
+        [];
     return apps;
   }
 
   @override
   Future<AppInfo> getAppInfo(String bundleId) async {
-    var app = await methodChannel.invokeMethod('getAppInfo',{'bundleId': bundleId},);
+    var app = await methodChannel.invokeMethod(
+      'getAppInfo',
+      {'bundleId': bundleId},
+    );
     if (app == null) throw ('No App with package name = $bundleId');
     return AppInfo.create(app);
   }
 
   @override
   Future<bool?> launchApp(String bundleId) async {
-    return methodChannel.invokeMethod('startApp', {'bundleId': bundleId},
+    return methodChannel.invokeMethod(
+      'startApp',
+      {'bundleId': bundleId},
     );
   }
 
   @override
   openAppSetting(String bundleId) {
-    methodChannel.invokeMethod('openAppSetting',
+    methodChannel.invokeMethod(
+      'openAppSetting',
       {'bundleId': bundleId},
     );
   }
 
   @override
   Future<bool?> isSystemApp(String bundleId) async {
-    return methodChannel.invokeMethod('isSystemApp',{'bundleId': bundleId},);
+    return methodChannel.invokeMethod(
+      'isSystemApp',
+      {'bundleId': bundleId},
+    );
   }
 }

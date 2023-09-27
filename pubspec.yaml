@@ -1,7 +1,7 @@
 name: device_installed_apps
 description: Plugin for Flutter with methods related to device installed apps.
-version: 1.0.0
-homepage: https://github.com/Hofinity/DeviceInstalledApps
+version: 1.0.1
+homepage: https://github.com/Hofinity/DeviceInstalledApps-FlutterPlugin
 
 environment:
   sdk: '>=3.0.6 <4.0.0'

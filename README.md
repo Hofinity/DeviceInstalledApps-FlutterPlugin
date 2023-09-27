@@ -36,7 +36,7 @@ List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(includeSystemApps: 
 
 #### Device system apps
 ``` dart
-List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(
+List<AppInfo> apps = await DeviceDeviceInstalledApps.getSystemApps(
 							String bundleIdPrefix,
 							bool includeIcon,
 		      				List<String> permissions,
@@ -52,7 +52,7 @@ List<AppInfo> apps = await DeviceDeviceInstalledApps.getSystemApps(permissions: 
 
 #### Device installed apps bundleIds
 ``` dart
-List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(
+List<String> apps = await DeviceDeviceInstalledApps.getAppsBundleIds(
 							String bundleIdPrefix,
 							bool includeSystemApps, 
 							bool includeIcon,
@@ -63,26 +63,26 @@ List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(
 
 ``` dart
 var permissions = ['android.permission.NFC','android.permission.ACCESS_FINE_LOCATION'];
-List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(includeSystemApps: true, permissions: permissions, bundleIdPrefix: 'com.hofinity', shouldHasAllPermissions: false);
+List<String> apps = await DeviceDeviceInstalledApps.getAppsBundleIds(includeSystemApps: true, permissions: permissions, bundleIdPrefix: 'com.hofinity', shouldHasAllPermissions: false);
 ```
 ---------
 
 #### Get an app info
-```
+``` dart
 AppInfo app = await DeviceInstalledApps.getAppInfo(String bundleId);
 ```
 
 #### Launch an app
-```
-DeviceInstalledApps.launchApp(String bundleId)
+``` dart
+DeviceInstalledApps.launchApp(String bundleId);
 ```
 #### Open app os settings
+``` dart
+DeviceInstalledApps.openSettings(String bundleId);
 ```
-DeviceInstalledApps.openSettings(String bundleId)
-```
-#### Check if app is system app
-```
-bool isSystemApp = await DeviceInstalledApps.isSystemApp(String bundleId)
+#### Check if an app is system app
+``` dart
+bool isSystemApp = await DeviceInstalledApps.isSystemApp(String bundleId);
 ```
 
 
