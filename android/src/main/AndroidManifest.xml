@@ -1,4 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.hofinity.device_installed_apps">
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 </manifest>

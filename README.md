@@ -9,6 +9,8 @@
 
 - [Installation Guide](https://pub.dev/packages/device_installed_apps#-installing-tab-)
 
+> [!WARNING]  
+> For Android 11 or later, you need to add ```<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />``` permission in your **AndroidManifest.xml** file to Query **all** packages but this is restricted for Google Play, see more at [here](https://support.google.com/googleplay/android-developer/answer/10158779). If you don't add it, you can still use package but you don't get some system apps.
 ## Usage
 
 #### Device installed apps
