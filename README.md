@@ -1,19 +1,16 @@
 # device_installed_apps
 
-A new Flutter plugin project.
-
-## Getting Started
-
 [Plugin](https://pub.dev/packages/device_installed_apps) for Flutter with methods related to device installed apps.
 
 | Supported platform  |
 | :-----:             |
 | Android             |
+## Getting Started
 
 - [Installation Guide](https://pub.dev/packages/device_installed_apps#-installing-tab-)
 
-## Installation Guide
-
+> [!WARNING]  
+> For Android 11 or later, you need to add ```<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />``` permission in your **AndroidManifest.xml** file to Query **all** packages but this is restricted for Google Play, see more at [here](https://support.google.com/googleplay/android-developer/answer/10158779). If you don't add it, you can still use package but you don't get some system apps.
 ## Usage
 
 #### Device installed apps
@@ -29,6 +26,7 @@ List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(
 
 ``` dart
 var permissions = ['android.permission.NFC','android.permission.ACCESS_FINE_LOCATION'];
+
 List<AppInfo> apps = await DeviceDeviceInstalledApps.getApps(includeSystemApps: true, permissions: permissions, bundleIdPrefix: 'com.hofinity', shouldHasAllPermissions: false);
 ```
 ---------
